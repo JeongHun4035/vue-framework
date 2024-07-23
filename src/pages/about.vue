@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 <style scoped></style>
 <template>
-  <div>home</div>
+  <div>about</div>
 </template>
 <route lang="yaml">
-name: home
+name: about
 </route>
