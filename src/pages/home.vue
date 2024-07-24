@@ -5,4 +5,5 @@
 </template>
 <route lang="yaml">
 name: home
+path: /
 </route>
