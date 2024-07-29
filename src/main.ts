@@ -2,27 +2,18 @@
 /* eslint-disable no-undef */
 import { ViteSSG } from 'vite-ssg'
 import { routes } from 'vue-router/auto-routes'
+import { createHead } from '@unhead/vue'
 import './style.css'
 import App from './App.vue'
 
-const rootRouteExists = routes.some((route) => route.path === '/')
-
-// 루트 경로가 없으면 리디렉션 설정
-if (!rootRouteExists) {
-  routes.push({
-    path: '/',
-    redirect: '/home',
-  })
-}
-
 export const createApp = ViteSSG(
-  // 루트 컴포넌트
   App,
-  // Vue Router 옵션
   { routes },
-  // 커스텀 설정 함수
-  ({ router, isClient, initialState }) => {
-    // 라우터 사용
+  ({ app, router, isClient, initialState }) => {
+    if (!app._context.provides['usehead']) {
+      const head = createHead()
+      app.use(head)
+    }
 
     // 클라이언트 사이드 특정 로직
     // if (isClient) {
@@ -41,7 +32,6 @@ export const createApp = ViteSSG(
 
     // 사용자 인증, 권한 확인, 데이터 페칭 등 네비게이션 전 특정 작업을 수행할 때 유용
     router.beforeEach((to, from, next) => {
-      console.log(`${from.path}에서 ${to.path}로 이동`)
       next()
     })
   }
