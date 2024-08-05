@@ -9,6 +9,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/common-ui/Button.vue')['default']
     Footer: typeof import('./src/components/popup/Footer.vue')['default']
+    Header: typeof import('./src/components/layouts/Header.vue')['default']
+    Layouts: typeof import('./src/components/layouts/index.vue')['default']
     Pager: typeof import('./src/components/popup/Pager.vue')['default']
     Progress: typeof import('./src/components/Progress.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

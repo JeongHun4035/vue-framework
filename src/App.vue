@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router'
 import LoadingProgress from '@/components/Progress.vue'
 import { onErrorCaptured } from 'vue'
+import Layout from '@/components/layouts/index.vue'
 
 const isLoading = ref(false)
 const percentage = ref(0)
@@ -42,13 +43,22 @@ onErrorCaptured((hook, instance, message) => {
 </script>
 
 <template>
-  <div>
+  <Layout>
     <LoadingProgress v-if="isLoading" :percentage="percentage" />
     <RouterView />
-  </div>
+  </Layout>
 </template>
 
 <style>
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #nprogress .spinner {
   top: 50% !important;
   right: 50% !important;
