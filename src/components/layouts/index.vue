@@ -21,17 +21,8 @@ import Footer from '@/components/layouts/Footer.vue'
   height: 100%;
 }
 
-.header {
-  flex-shrink: 0;
-}
-
 main {
   flex: 1;
-  overflow: auto;
   padding: 10px;
-}
-
-.footer {
-  flex-shrink: 0;
 }
 </style>
