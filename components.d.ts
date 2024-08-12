@@ -15,6 +15,7 @@ declare module 'vue' {
     Progress: typeof import('./src/components/Progress.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Sidebar: typeof import('./src/components/layouts/Sidebar.vue')['default']
     Tree: typeof import('./src/components/Tree.vue')['default']
   }
 }

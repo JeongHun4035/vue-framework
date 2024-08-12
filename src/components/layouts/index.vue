@@ -1,15 +1,25 @@
 <script setup lang="ts">
 import Header from '@/components/layouts/Header.vue'
 import Footer from '@/components/layouts/Footer.vue'
+import Sidebar from '@/components/layouts/Sidebar.vue'
+
+const isSidebarOpen = ref(false)
+
+const toggleSidebar = () => {
+  isSidebarOpen.value = !isSidebarOpen.value
+}
 </script>
 
 <template>
   <div class="layout">
-    <Header class="header" />
-    <main>
+    <Header @toggle-sidebar="toggleSidebar" />
+    <Sidebar :is-open="isSidebarOpen" />
+    <div class="main">
       <slot />
-    </main>
-    <Footer class="footer" />
+    </div>
+    <div class="footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -17,12 +27,21 @@ import Footer from '@/components/layouts/Footer.vue'
 .layout {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
 }
 
-main {
+.header {
+  height: 60px;
+}
+
+.main {
   flex: 1;
   padding: 10px;
+}
+
+.footer {
+  height: 60px;
 }
 </style>

@@ -1,12 +1,12 @@
 <script setup lang="ts"></script>
 <template>
-  <footer>
+  <div class="footer">
     <p>My Footer</p>
-  </footer>
+  </div>
 </template>
 
 <style scoped>
-footer {
+.footer {
   width: 100%;
 }
 </style>
